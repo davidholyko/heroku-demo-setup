@@ -12,10 +12,13 @@ Rails.application.routes.draw do
 
   # Books resources routes
   get '/books' => 'books#index'
+  get '/books/:id' => 'books#show'
 
   # Patients resources routes
   get '/patients' => 'patients#index'
+  get '/patients/:id' => 'patients#show'
 
   # Ingredients resources routes
   get '/ingredients' => 'ingredients#index'
+  get '/ingredients/:id' => 'ingredients#show'
 end
