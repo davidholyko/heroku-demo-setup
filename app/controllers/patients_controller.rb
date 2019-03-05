@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 class PatientsController < ApplicationController
+  before_action :set_patient, only: %i[show update destroy]
   def index
     @patients = Patient.all
     render json: @patients
   end
 
   def show
-    @patient = Patient.find(params[:id])
     render json: @patient
   end
 
@@ -23,5 +23,22 @@ class PatientsController < ApplicationController
 
   def patient_params
     params.require(:patient).permit(:first_name, :last_name, :diagnosis, :born_on)
+  end
+
+  def update
+    if @patient.update(patient_params)
+      render json: @patient
+    else
+      render json: @patient.errors, status: :unprocessable_entity
+    end
+  end
+
+  def set_patient
+    @patient = Patient.find(params[:id])
+  end
+
+  def destroy
+    @patient.destroy
+    head :no_content
   end
 end
