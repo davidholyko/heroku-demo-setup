@@ -1,15 +1,15 @@
 #!/bin/bash
 
-curl "http://localhost:4741/patients" \
+curl "http://localhost:4741/doctors" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
   --data '{
-    "patient": {
+    "doctor": {
       "first_name": "'"${FIRST_NAME}"'",
       "last_name": "'"${LAST_NAME}"'",
-      "diagnosis": "'"${DIAGNOSIS}"'",
-      "born_on": "'"${BORN}"'"
+      "speciality": "'"${SPECIALITY}"'",
+      "zip_code": "'"${ZIP_CODE}"'"
     }
   }'
 

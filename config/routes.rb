@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :meals
   # RESTful routes
   resources :examples, except: %i[new edit]
 
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 
   # Books resources routes
   resources :books, except: %i[new edit]
-  # resources: turns the bottom into above
+  # # resources: turns the bottom into above
   # get '/books' => 'books#index'
   # get '/books/:id' => 'books#show'
   # post '/books' => 'books#create'
@@ -24,4 +25,25 @@ Rails.application.routes.draw do
 
   # Ingredients resources routes
   resources :ingredients, except: %i[new edit]
+
+  # Authors resources routes
+  resources :authors, except: %i[new edit]
+
+  # Doctors resources routes
+  resources :doctors, except: %i[new edit]
+
+  # Recipes resources routes
+  resources :recipes, except: %i[new edit]
+
+  # Borrowers resources routes
+  resources :borrowers, except: %i[new edit]
+
+  # Loans resources routes
+  resources :loans, except: %i[new edit]
+
+  # Appointments resources routes
+  resources :appointments,  except: %i[new edit]
+
+  # Meals resources routes
+  resources :meals,  except: %i[new edit]
 end
