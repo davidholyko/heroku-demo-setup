@@ -1,4 +1,6 @@
+# frozen_string_literal: true
+
 class Meal < ApplicationRecord
-  belongs_to :ingredient
-  belongs_to :recipe
+  belongs_to :ingredient, inverse_of: :meals
+  belongs_to :recipe, inverse_of: :meals
 end
